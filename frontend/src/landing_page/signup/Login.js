@@ -56,7 +56,7 @@ const Login = () => {
         setCookie("token", token, { path: "/" }); // Add this line
 
         setTimeout(() => {
-          window.location.href = "https://zerodha-dashboard-nu.vercel.app";
+          window.location.href = "https://stock-sphere-dashboard.vercel.app";
         }, 1000);
       } else {
         handleError(message);

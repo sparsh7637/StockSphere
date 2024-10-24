@@ -26,8 +26,8 @@ const io = new Server(server, {
     origin: [
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://zerodha-dashboard-nu.vercel.app",
-      "https://zerodha-frontend-navy.vercel.app",
+      "https://stock-sphere-dashboard.vercel.app",
+      "https://stock-sphere-frontend.vercel.app",
     ],
     credentials: true,
   },
@@ -38,8 +38,8 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:3001",
-      "https://zerodha-dashboard-nu.vercel.app",
-      "https://zerodha-frontend-navy.vercel.app",
+      "https://stock-sphere-dashboard.vercel.app",
+      "https://stock-sphere-frontend.vercel.app",
     ],
     credentials: true,
   })

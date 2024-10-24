@@ -15,7 +15,7 @@ function Team() {
         >
           <div className="col-6 text-center mt-5">
             <img
-              src="media/images/cul2.png"
+              src="media/images/sparshgulati.png"
               style={{ borderRadius: "100%", width: "60%" }}
             />
             <h3 className="mt-4 mb-4 text-muted">Sparsh Gulati</h3>
