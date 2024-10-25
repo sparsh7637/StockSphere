@@ -3,8 +3,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const http = require("http"); // Required for creating server with Socket.IO
-const { Server } = require("socket.io"); // Importing Socket.IO
+const http = require("http"); 
+const { Server } = require("socket.io");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./Routes/AuthRoutes");
 const { userVerification } = require("./Middlewares/AuthMiddleware");
@@ -17,10 +17,8 @@ const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
 const app = express();
 
-// Creating HTTP server to use with Socket.IO
 const server = http.createServer(app);
 
-// Initializing Socket.IO with CORS options
 const io = new Server(server, {
   cors: {
     origin: [
@@ -269,7 +267,7 @@ app.put("/updateOrder", async (req, res) => {
     const updatedOrder = await OrdersModel.findOneAndUpdate(
       { name },
       { qty, price },
-      { new: true } // Returns the updated document
+      { new: true } 
     );
 
     if (updatedOrder) {
@@ -302,34 +300,27 @@ app.post("/newOrder", async (req, res) => {
   res.send("saved successfully");
 });
 
-// Socket.IO connection and random price update logic
 io.on("connection", (socket) => {
   console.log("A client connected:", socket.id);
 
-  // Send random LTP (Last Traded Price) updates every 1 second
   setInterval(async () => {
     let allHoldings = await HoldingsModel.find({});
 
-    // Update the price by multiplying it with a random number between 0.9 and 1.1
     const updatedHoldings = allHoldings.map((stock) => {
-      const randomMultiplier = 0.9 + Math.random() * 0.2; // Multiplier between 0.9 and 1.1
+      const randomMultiplier = 0.9 + Math.random() * 0.2; 
       return {
-        ...stock._doc, // Spread original stock object (_doc contains the stock data)
-        price: stock.price * randomMultiplier, // Update price
+        ...stock._doc, 
+        price: stock.price * randomMultiplier, 
       };
     });
 
-    // Emit updated holdings to the client
     socket.emit("holdingsUpdate", updatedHoldings);
-  }, 1000); // Send updates every 1 second
-
-  // Disconnect event
+  }, 1000); 
   socket.on("disconnect", () => {
     console.log("Client disconnected:", socket.id);
   });
 });
 
-// Use server.listen instead of app.listen for Socket.IO to work
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

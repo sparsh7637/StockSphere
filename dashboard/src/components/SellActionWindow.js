@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify"; // Import toast for error handling
+import { toast } from "react-toastify"; 
 import GeneralContext from "./GeneralContext";
-import "./BuyActionWindow.css"; // Reusing the same CSS as BuyActionWindow
+import "./BuyActionWindow.css"; 
 
 const backendUrl =
   process.env.REACT_APP_NODE_ENV === "development"
@@ -11,19 +11,17 @@ const backendUrl =
     : process.env.REACT_APP_PROD_BACKEND_URL;
 
 const SellActionWindow = ({ uid }) => {
-  const { closeSellWindow } = useContext(GeneralContext); // Use context to close the window
+  const { closeSellWindow } = useContext(GeneralContext); 
   const [stockQuantity, setStockQuantity] = useState(1);
   const [availableQuantity, setAvailableQuantity] = useState(0);
   const [stockPrice, setStockPrice] = useState(0.0);
 
-  // Fetch all orders and find the one matching the stock name (uid)
   useEffect(() => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(`${backendUrl}/allOrders`);
         const orderData = response.data;
 
-        // Search for the correct order by stock name (uid)
         const userOrder = orderData.find((order) => order.name === uid);
 
         if (userOrder) {
@@ -51,7 +49,6 @@ const SellActionWindow = ({ uid }) => {
 
     try {
       if (updatedQty > 0) {
-        // Update the order quantity
         await axios.put(`${backendUrl}/updateOrder`, {
           name: uid,
           qty: updatedQty,
@@ -60,12 +57,11 @@ const SellActionWindow = ({ uid }) => {
         });
         toast.success("Order updated successfully.");
       } else {
-        // Delete the order if quantity is 0
         await axios.delete(`${backendUrl}/deleteOrder/${uid}`);
         toast.success("Order deleted successfully.");
       }
 
-      closeSellWindow(); // Close the window on success
+      closeSellWindow(); 
     } catch (error) {
       toast.error("Error processing the order.");
       console.error("Error processing the order", error);
@@ -73,7 +69,7 @@ const SellActionWindow = ({ uid }) => {
   };
 
   const handleCancelClick = () => {
-    closeSellWindow(); // Close the window on cancel
+    closeSellWindow();
   };
 
   return (

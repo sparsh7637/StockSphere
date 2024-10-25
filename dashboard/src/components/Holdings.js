@@ -3,7 +3,6 @@ import axios from "axios";
 import { io } from "socket.io-client"; // Import socket.io-client
 import { VerticalGraph } from "./VerticalGraph";
 
-// Get backend URL based on environment variables
 const backendUrl =
   process.env.REACT_APP_NODE_ENV === "development"
     ? process.env.REACT_APP_LOCAL_BACKEND_URL
@@ -12,25 +11,20 @@ const backendUrl =
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
-  // Establish socket connection
   useEffect(() => {
-    // Fetch initial data via HTTP request
     axios.get(`${backendUrl}/allHoldings`).then((res) => {
       setAllHoldings(res.data);
     });
 
-    // Initialize Socket.IO connection
     const socket = io(backendUrl, {
       transports: ["websocket"],
       withCredentials: true,
     });
 
-    // Listen for 'holdingsUpdate' events from the server
     socket.on("holdingsUpdate", (updatedHoldings) => {
       setAllHoldings(updatedHoldings); // Update holdings in real-time
     });
 
-    // Clean up socket connection on component unmount
     return () => {
       socket.disconnect();
     };
@@ -71,8 +65,8 @@ const Holdings = () => {
             {allHoldings.map((stock, index) => {
               const curValue = stock.price * stock.qty;
               const isProfit = curValue - stock.avg * stock.qty >= 0.0;
-              const profClass = isProfit ? "profit" : "loss"; // Adjusted for Tailwind
-              const dayClass = stock.day < 0.0 ? "loss" : "profit"; // Adjusted for Tailwind
+              const profClass = isProfit ? "profit" : "loss"; 
+              const dayClass = stock.day < 0.0 ? "loss" : "profit"; 
 
               return (
                 <tr key={index}>

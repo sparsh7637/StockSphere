@@ -8,8 +8,8 @@ import {
   ArrowDownIcon,
   ArrowUpIcon,
   DotsHorizontalIcon,
-} from "@heroicons/react/outline"; // Update the import path here
-import { watchlist } from "../data/data"; // Ensure this path is correct
+} from "@heroicons/react/outline";
+import { watchlist } from "../data/data";
 
 const WatchList = () => {
   const [searchTerm, setSearchTerm] = useState("");
