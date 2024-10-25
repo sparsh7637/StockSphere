@@ -9,4 +9,4 @@ StockSphere is a full-stack MERN (MongoDB, Express, React, Node) stock trading s
 - **Backend API**: Powered by **Node** and **Express**, the backend efficiently handles API calls and data transactions.
 - **Hosted on Render**: The backend is hosted on **Render**, which may result in a loading delay of around 50 seconds when accessing holdings, positions, or orders for the first time.
 - **User Signup & Dashboard**: Upon **signup**, users are redirected to the **dashboard**, which is built using **Tailwind CSS** for a clean and responsive design.
-- **Data Visualization**: **Chart.js** is integrated for creating dynamic and interactive charts, providing users with visual insights into stock performance.
+- **Data Visualization**: Integrated **Chart.js** for creating dynamic and interactive charts, providing users with visual insights into stock performance.
