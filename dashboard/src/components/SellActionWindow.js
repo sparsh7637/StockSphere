@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify"; 
+import { toast } from "react-toastify";
 import GeneralContext from "./GeneralContext";
-import "./BuyActionWindow.css"; 
+import "./BuyActionWindow.css";
 
 const backendUrl =
   process.env.REACT_APP_NODE_ENV === "development"
@@ -11,7 +11,7 @@ const backendUrl =
     : process.env.REACT_APP_PROD_BACKEND_URL;
 
 const SellActionWindow = ({ uid }) => {
-  const { closeSellWindow } = useContext(GeneralContext); 
+  const { closeSellWindow } = useContext(GeneralContext);
   const [stockQuantity, setStockQuantity] = useState(1);
   const [availableQuantity, setAvailableQuantity] = useState(0);
   const [stockPrice, setStockPrice] = useState(0.0);
@@ -61,7 +61,7 @@ const SellActionWindow = ({ uid }) => {
         toast.success("Order deleted successfully.");
       }
 
-      closeSellWindow(); 
+      closeSellWindow();
     } catch (error) {
       toast.error("Error processing the order.");
       console.error("Error processing the order", error);
@@ -76,19 +76,18 @@ const SellActionWindow = ({ uid }) => {
     <div className="container" id="sell-window" draggable="true">
       <div className="regular-order">
         <div className="inputs">
-          <fieldset className="border border-gray-300 p-2 rounded">
-            <legend className="px-2 text-sm font-medium">Qty.</legend>
+          <fieldset>
+            <legend>Qty.</legend>
             <input
               type="number"
               name="qty"
               id="qty"
               onChange={(e) => setStockQuantity(e.target.value)}
               value={stockQuantity}
-              className="border border-gray-300 p-1 w-full rounded focus:outline-none focus:ring focus:border-blue-500"
             />
           </fieldset>
-          <fieldset className="border border-gray-300 p-2 rounded mt-4">
-            <legend className="px-2 text-sm font-medium">Price</legend>
+          <fieldset>
+            <legend>Price</legend>
             <input
               type="number"
               name="price"
@@ -96,28 +95,18 @@ const SellActionWindow = ({ uid }) => {
               step="0.05"
               value={stockPrice}
               readOnly
-              className="border border-gray-300 p-1 w-full rounded focus:outline-none focus:ring focus:border-blue-500"
             />
           </fieldset>
         </div>
       </div>
 
       <div className="buttons mt-6">
-        <span className="block text-gray-500 mb-2">
-          Available quantity: {availableQuantity}
-        </span>
+        <span>Available quantity: {availableQuantity}</span>
         <div className="flex space-x-2">
-          <Link
-            className="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-            onClick={handleSellClick}
-          >
+          <Link className="btn" onClick={handleSellClick}>
             Sell
           </Link>
-          <Link
-            to=""
-            className="btn bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
-            onClick={handleCancelClick}
-          >
+          <Link to="" className="btn" onClick={handleCancelClick}>
             Cancel
           </Link>
         </div>

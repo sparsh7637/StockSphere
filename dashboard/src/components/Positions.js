@@ -20,7 +20,7 @@ const Positions = () => {
       <h3 className="title">Positions ({allPositions.length})</h3>
 
       <div className="order-table">
-        <table className="border-collapse border border-slate-500 w-full">
+        <table>
           <thead>
             <tr>
               <th className="border border-slate-600 p-2 text-left">Product</th>
@@ -49,7 +49,7 @@ const Positions = () => {
                   <td className={`border border-slate-700 p-2 ${profClass}`}>
                     {(curValue - stock.avg * stock.qty).toFixed(2)}
                   </td>
-                  <td className={`border border-slate-700 p-2 ${dayClass}`}>{stock.day}</td>
+                  <td className={`${dayClass}`}>{stock.day}</td>
                 </tr>
               );
             })}

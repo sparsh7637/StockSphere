@@ -4,25 +4,17 @@ import { Link } from "react-router-dom";
 const Funds = () => {
   return (
     <>
-      <div className="funds p-6 bg-white shadow rounded-md">
-        <p className="text-lg font-medium text-gray-700">
-          Instant, zero-cost fund transfers with UPI
-        </p>
+      <div className="funds">
+        <p>Instant, zero-cost fund transfers with UPI</p>
         <div className="mt-4 flex flex-col space-y-4">
-          <Link className="btn btn-blue bg-green-500 text-white px-6 py-3 w-40 text-center rounded hover:bg-green-600">
-            Add funds
-          </Link>
-          <Link className="btn btn-blue bg-blue-500 text-white px-6 py-3 w-40 text-center rounded hover:bg-blue-600">
-            Withdraw
-          </Link>
+          <Link className="btn btn-blue">Add funds</Link>
+          <Link className="btn btn-blue">Withdraw</Link>
         </div>
       </div>
 
       <div className="">
-        <div className="col bg-gray-900 p-6 shadow rounded-md">
-          <p className="text-lg font-medium text-gray-400 mb-6"></p>
+        <div className="bg-gray-900 p-6 shadow rounded-md col">
           <table className="table border-collapse border border-slate-500 w-full">
-          
             <tbody className="text-gray-400">
               <tr className="border-b border-slate-700">
                 <td className="data border border-slate-700">
@@ -126,12 +118,10 @@ const Funds = () => {
 
         <div className="bg-white p-6 shadow rounded-md">
           <div className="commodity">
-            <p style={{fontSize:"120%", marginBottom:"5%"}} className="">
+            <p style={{ fontSize: "120%", marginBottom: "5%" }} className="">
               You don't have a commodity account
             </p>
-            <Link className="btn btn-blue">
-              Open Account
-            </Link>
+            <Link className="btn btn-blue">Open Account</Link>
           </div>
         </div>
       </div>

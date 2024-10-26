@@ -17,15 +17,20 @@ const Menu = () => {
   const activeMenuClass = "menu selected";
 
   return (
-    <div className="menu-container flex flex-col h-full bg-gray-100 shadow-lg">
+    <div className="menu-container">
       {/* Logo */}
       <div className="p-1">
-        <img src="slogo3.png" style={{width:"50%"}} alt="Logo" className="w-4 h-auto" />
+        <img
+          src="slogo3.png"
+          style={{ width: "50%" }}
+          alt="Logo"
+          className="w-4 h-auto"
+        />
       </div>
 
       {/* Menu List */}
-      <div className="menus flex-1">
-        <ul className="space-y-2">
+      <div className="menus">
+        <ul>
           <li>
             <Link
               to="/"
@@ -34,10 +39,8 @@ const Menu = () => {
             >
               <p
                 className={`${
-                  selectedMenu === 0
-                    ? `${activeMenuClass} bg-blue-500 text-white`
-                    : `${menuClass} text-gray-700`
-                } py-2 px-4 rounded-lg hover:bg-blue-500 hover:text-white transition duration-150`}
+                  selectedMenu === 0 ? `${activeMenuClass}` : `${menuClass}`
+                }`}
               >
                 Dashboard
               </p>
@@ -51,10 +54,8 @@ const Menu = () => {
             >
               <p
                 className={`${
-                  selectedMenu === 1
-                    ? `${activeMenuClass} bg-blue-500 text-white`
-                    : `${menuClass} text-gray-700`
-                } py-2 px-4 rounded-lg hover:bg-blue-500 hover:text-white transition duration-150`}
+                  selectedMenu === 1 ? `${activeMenuClass}` : `${menuClass}`
+                }`}
               >
                 Orders
               </p>
@@ -68,10 +69,8 @@ const Menu = () => {
             >
               <p
                 className={`${
-                  selectedMenu === 2
-                    ? `${activeMenuClass} bg-blue-500 text-white`
-                    : `${menuClass} text-gray-700`
-                } py-2 px-4 rounded-lg hover:bg-blue-500 hover:text-white transition duration-150`}
+                  selectedMenu === 2 ? `${activeMenuClass}` : `${menuClass}`
+                }`}
               >
                 Holdings
               </p>
@@ -85,10 +84,8 @@ const Menu = () => {
             >
               <p
                 className={`${
-                  selectedMenu === 3
-                    ? `${activeMenuClass} bg-blue-500 text-white`
-                    : `${menuClass} text-gray-700`
-                } py-2 px-4 rounded-lg hover:bg-blue-500 hover:text-white transition duration-150`}
+                  selectedMenu === 3 ? `${activeMenuClass}` : `${menuClass}`
+                }`}
               >
                 Positions
               </p>
@@ -102,29 +99,24 @@ const Menu = () => {
             >
               <p
                 className={`${
-                  selectedMenu === 4
-                    ? `${activeMenuClass} bg-blue-500 text-white`
-                    : `${menuClass} text-gray-700`
-                } py-2 px-4 rounded-lg hover:bg-blue-500 hover:text-white transition duration-150`}
+                  selectedMenu === 4 ? `${activeMenuClass}` : `${menuClass}`
+                }`}
               >
                 Funds
               </p>
             </Link>
           </li>
-
         </ul>
         <hr className="my-4 border-gray-300" />
       </div>
 
       {/* Profile Section */}
       <div
-        className="profile flex items-center justify-between p-4 cursor-pointer hover:bg-gray-200"
+        className="profile"
         onClick={handleProfileClick}
       >
-        <div className="avatar">
-          SU
-        </div>
-        <p className="username text-gray-700 ml-3">USERID</p>
+        <div className="avatar">SU</div>
+        <p className="username">USERID</p>
       </div>
     </div>
   );
