@@ -12,16 +12,16 @@ import { GeneralContextProvider } from "./GeneralContext";
 
 const Dashboard = () => {
   return (
-    <div className="dashboard-container flex flex-col md:flex-row h-screen">
+    <div className="dashboard-container">
       <GeneralContextProvider>
         {/* WatchList section */}
-        <div className="watchlist-container w-full md:w-1/4 p-4 bg-gray-100 border-r">
+        <div className="watchlist-container">
           <WatchList />
         </div>
       </GeneralContextProvider>
 
       {/* Main content area */}
-      <div className="content w-full md:w-3/4 p-6 bg-white overflow-y-auto">
+      <div className="content">
         <Routes>
           <Route exact path="/" element={<Summary />} />
           <Route path="/orders" element={<Orders />} />
