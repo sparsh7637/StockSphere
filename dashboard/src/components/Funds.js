@@ -124,7 +124,7 @@ const Funds = () => {
           </table>
         </div>
 
-        <div className="col bg-white p-6 shadow rounded-md">
+        <div className="bg-white p-6 shadow rounded-md">
           <div className="commodity">
             <p style={{fontSize:"120%", marginBottom:"5%"}} className="">
               You don't have a commodity account

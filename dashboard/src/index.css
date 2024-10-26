@@ -161,7 +161,7 @@ code {
 
 .commodity p {
   margin-bottom: 10%;
-  color: #c9c9c9;
+  color: #858585;
 }
 
 /* sudo selectors */
@@ -282,6 +282,7 @@ code {
 
 .menu-container {
   flex-basis: 68%;
+  width: 100%;
   height: 100%;
   padding: 10px 20px;
   box-sizing: border-box;
@@ -861,7 +862,6 @@ hr {
   display: flex;
 }
 
-/* TODO */
 .list li::before {
   content: "";
   background: transparent;
@@ -874,7 +874,6 @@ hr {
 
 .watchlist-number ul li:hover {
   color: rgb(245, 104, 52);
-  /* cursor: pointer; */
   background: rgb(243, 243, 243);
 }
 

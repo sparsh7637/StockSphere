@@ -121,7 +121,7 @@ const Menu = () => {
         className="profile flex items-center justify-between p-4 cursor-pointer hover:bg-gray-200"
         onClick={handleProfileClick}
       >
-        <div className="avatar bg-blue-500 text-white w-10 h-10 rounded-full flex items-center justify-center">
+        <div className="avatar">
           SU
         </div>
         <p className="username text-gray-700 ml-3">USERID</p>
