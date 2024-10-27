@@ -13,7 +13,7 @@ const Funds = () => {
       </div>
 
       <div className="">
-        <div className="bg-gray-900 p-6 shadow rounded-md col">
+        <div className="bg-gray-900 p-6 shadow rounded-md" style={{marginTop:"25px"}}>
           <table className="table border-collapse border border-slate-500 w-full">
             <tbody className="text-gray-400">
               <tr className="border-b border-slate-700">
@@ -116,9 +116,9 @@ const Funds = () => {
           </table>
         </div>
 
-        <div className="bg-white p-6 shadow rounded-md">
+        <div>
           <div className="commodity">
-            <p style={{ fontSize: "120%", marginBottom: "5%" }} className="">
+            <p style={{ fontSize: "120%", marginBottom: "4%" }} className="">
               You don't have a commodity account
             </p>
             <Link className="btn btn-blue">Open Account</Link>
