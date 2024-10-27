@@ -4,7 +4,6 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import useSignup from "../../hooks/useSignup";
 
-// Select the backend URL based on the environment
 const backendUrl =
   process.env.REACT_APP_NODE_ENV === "development"
     ? process.env.REACT_APP_LOCAL_BACKEND_URL

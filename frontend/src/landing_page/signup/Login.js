@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import { useCookies } from "react-cookie"; // Add this line
+import { useCookies } from "react-cookie"; 
 
 const backendUrl =
   process.env.REACT_APP_NODE_ENV === "development"
     ? process.env.REACT_APP_LOCAL_BACKEND_URL
     : process.env.REACT_APP_PROD_BACKEND_URL;
-// console.log(process.env.REACT_APP_LOCAL_BACKEND_URL);
 
 const Login = () => {
   const navigate = useNavigate();
-  const [cookies, setCookie] = useCookies(["token"]); // Add this line
+  const [cookies, setCookie] = useCookies(["token"]); 
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
@@ -48,12 +47,11 @@ const Login = () => {
         { withCredentials: true }
       );
       console.log(data);
-      const { success, message, token } = data; // Make sure the backend returns token
+      const { success, message, token } = data;
       if (success) {
         handleSuccess(message);
 
-        // Set the token in cookies
-        setCookie("token", token, { path: "/" }); // Add this line
+        setCookie("token", token, { path: "/" }); 
 
         setTimeout(() => {
           window.location.href = "https://stock-sphere-dashboard.vercel.app";
