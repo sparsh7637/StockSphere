@@ -49,7 +49,7 @@ const Signup = () => {
         handleSuccess(message);
         setTimeout(() => {
           window.location.href = "https://stock-sphere-dashboard.vercel.app";
-        }, 1000);
+        }, 500);
       } else {
         handleError(message);
       }

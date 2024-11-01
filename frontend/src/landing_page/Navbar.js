@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 
-// Select the backend URL based on the environment
 const backendUrl =
   process.env.REACT_APP_NODE_ENV === "development"
     ? process.env.REACT_APP_LOCAL_BACKEND_URL
@@ -11,31 +10,29 @@ const backendUrl =
 
 function Navbar() {
   const [cookies, , removeCookie] = useCookies(["token"]);
-  const [userExists, setUserExists] = useState(false); // To track if user is logged in
+  const [userExists, setUserExists] = useState(false); 
   const navigate = useNavigate();
 
   useEffect(() => {
     const verifyUser = async () => {
       console.log("verifying user");
-      // Log cookie to verify its presence
       console.log("Cookie:", cookies.token);
       if (cookies.token) {
         console.log(cookies.token);
         try {
           const { data } = await axios.get(`${backendUrl}/verifyUser`, {
-            withCredentials: true, // Ensure cookies are sent
+            withCredentials: true,
           });
 
-          console.log("API response:", data); // Log response to check
+          console.log("API response:", data);
 
-          // Check for success in the response
           if (data.success) {
             console.log("User is logged in");
-            setUserExists(true); // Logged in, show Dashboard and Logout
+            setUserExists(true); 
           } else {
             console.log("User not found, clearing cookie");
             removeCookie("token");
-            setUserExists(false); // Not logged in
+            setUserExists(false);
           }
         } catch (error) {
           console.error("Error verifying user", error);
@@ -44,7 +41,7 @@ function Navbar() {
         }
       } else {
         console.log("No token found, user is not logged in");
-        setUserExists(false); // Not logged in
+        setUserExists(false); 
       }
     };
 
