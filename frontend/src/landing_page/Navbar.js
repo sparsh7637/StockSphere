@@ -5,7 +5,7 @@ function Navbar() {
   const location = useLocation();
 
   const activeLinkStyles = {
-    color: "#007bff", 
+    color: "#007bff",
   };
 
   const handleLinkStyles = (path) => {
@@ -14,7 +14,7 @@ function Navbar() {
 
   return (
     <nav
-      className="navbar navbar-expand-lg border-bottom"
+      className="navbar navbar-expand-lg navbar-light border-bottom"
       style={{ backgroundColor: "#FFF" }}
     >
       <div className="container">
