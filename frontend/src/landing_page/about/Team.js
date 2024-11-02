@@ -45,6 +45,12 @@ function Team() {
               >
                 Instagram <FontAwesomeIcon icon={faArrowRight} />
               </a>
+              <a
+                className="mx-2 p-1 link-offset-2 link-underline link-underline-opacity-0"
+                href="https://github.com/sparsh7637"
+              >
+                Github <FontAwesomeIcon icon={faArrowRight} />
+              </a>
             </p>
           </div>
         </div>
